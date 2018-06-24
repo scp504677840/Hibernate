@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- 基本配置 -->
+        <property name="connection.url">jdbc:mysql://192.168.0.101:3306/lab</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <!-- 数据库方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <!-- 控制台是否打印SQL -->
+        <property name="show_sql">true</property>
+        <!-- 是否对SQL进行格式化 -->
+        <property name="format_sql">true</property>
+        <!-- 制定自动生成数据表的策略 -->
+        <property name="hbm2ddl.auto">update</property>
+        <mapping class="entity.HeroEntity"/>
+        <mapping resource="entity/HeroEntity.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
