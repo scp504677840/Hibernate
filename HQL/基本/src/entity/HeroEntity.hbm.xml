@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <!-- dynamic-insert="true" 动态插入，只插入不为null的属性-->
+    <!-- dynamic-update="true" 动态更新，只更新不为null的属性 -->
+    <class name="entity.HeroEntity" table="hero" schema="lab" dynamic-insert="true" dynamic-update="true">
+        <id name="id">
+            <column name="id" sql-type="bigint(20) unsigned"/>
+            <!-- increment自增；线程不安全，容易造成主键相同情况。 -->
+            <!-- identity自增；MySQL支持；Oracle不支持； -->
+            <!--hilo自增；hight/low-->
+            <!--native根据底层数据库来选择主键自增方式；跨平台。MySQL和Oracle都支持。-->
+            <generator class="native"/>
+        </id>
+        <property name="gmtCreate">
+            <column name="gmt_create" sql-type="datetime"/>
+        </property>
+        <property name="gmtModified">
+            <column name="gmt_modified" sql-type="datetime"/>
+        </property>
+        <property name="name">
+            <column name="name" sql-type="varchar(20)" length="20"/>
+        </property>
+    </class>
+</hibernate-mapping>
